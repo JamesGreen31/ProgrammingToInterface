@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets{
+    api {
+        compileClasspath += main.compileClasspath
+        runtimeClasspath += main.runtimeClasspath
+    }
+    main {
+        compileClasspath += api.output
+        runtimeClasspath += api.output
+    }
+}
+
+task mainJar(type: Jar, dependsOn: classes) {
+    classifier("main")
+    from sourceSets.main.output
+}
+task sourcesJar(type: Jar, dependsOn: classes){
+    classifier("sources")
+    from sourceSets.api.allSource
+}
+artifacts {
+    mainJar
+    sourcesJar
+}
