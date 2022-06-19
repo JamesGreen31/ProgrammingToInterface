@@ -39,9 +39,9 @@ The language in the linked article can be quite confusing, so I will attempt to 
     }
   }
   
-  public class wheel{
+  public class car{
     private SedanTire tire;
-    public wheel(SedanTire tire){
+    public car(SedanTire tire){
       this.tire = tire;
     }
   }
@@ -57,12 +57,16 @@ The language in the linked article can be quite confusing, so I will attempt to 
     }
   }
   
-  public class wheel{
+  public class car{
     private Wheel tire;
     public wheel(Wheel tire){
       this.tire = tire;
     }
   }
+
+  interface wheel{
+     void roll();
+   }
   ```
 
  The first code block is how I would have done this back when I was first learning. On the surface, it makes perfect sense. However, this has a few flaws. First, only objects of type SedanTire
