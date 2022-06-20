@@ -1,4 +1,4 @@
-# ProgrammingToInterface
+# Programming To An Interface
 A small project illustrating Programming to an interface
 
 ## Overview
